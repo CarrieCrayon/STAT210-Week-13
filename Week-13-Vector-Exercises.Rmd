@@ -8,27 +8,6 @@ install.packages("repurrrsive")
 library(repurrrsive)
 library(broom)
 names(sw_people) <- sw_people %>% map_chr("name")
-
-# Toy data
-set.seed(1000)
-exams <- list(
-  student1 = round(runif(10, 50, 100)),
-  student2 = round(runif(10, 50, 100)),
-  student3 = round(runif(10, 50, 100)),
-  student4 = round(runif(10, 50, 100)),
-  student5 = round(runif(10, 50, 100))
-)
-
-extra_credit <- list(0, 0, 10, 10, 15)
-
-names(who) <- str_replace(names(who), "newrel", "new_rel")
-tb <-  
-  who %>%
-  gather("codes", "n", 5:60) %>%
-  separate(codes, c("new", "type", "sexage"), sep = "_") %>%
-  select(-new, -iso2, -iso3) %>%
-  separate(sexage, c("sex", "age"), sep = 1) %>%
-  drop_na(n)
 ```
 
 # Lists
@@ -61,8 +40,11 @@ Use the RStudio Viewer to find the answer (in cm).
 *Hint: View() sw_people*
 
 ```{r}
-
+View(sw_people)
+sw_people[["Anakin Skywalker"]][["height"]]
+sw_people[["Darth Vader"]][["hair_color"]]
 ```
+Darth Vader was 202cm whereas Anakin Skywalker was 188cm. I guess Vader is wearing some super high heels???
 
 ## Your Turn 3
 
